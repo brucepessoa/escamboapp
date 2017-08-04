@@ -1,8 +1,4 @@
-class Backoffice::DashboardController < ApplicationController
-	before_action :authenticate_user!
-
-	layout 'backoffice'
-
+class Backoffice::DashboardController < BackofficeController
   	def index
   	end
 end
