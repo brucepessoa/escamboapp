@@ -27,13 +27,29 @@
 </head>
 
 <body>
-
     <div id="wrapper">
         <%= render partial: "layouts/backoffice_shared/navigation.html.erb"  %>
-		<%= yield %>
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <%= yield %>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
     </div>
     <!-- /#wrapper -->
+    <% if notice %>    
+        <script>
+            $.notify("<%= notice %>", "success");
+        </script>
+    <% end %>
 
 </body>
-
 </html>

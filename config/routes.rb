@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]  
+    resources :admins, except: [:show] 
     get 'dashboard', to:'dashboard#index'
   end
 
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :members
-  devise_for :admins
+  devise_for :admins, :skip => [:registrations] # :skip - retira a rota de registrar novo admin. Isso será feito dentro do programa somente por um admin user
   devise_for :users
   #get 'home/index'
 
